@@ -1,4 +1,4 @@
-mysql: [Warning] Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
 --------------
 SELECT * FROM doctor
 --------------
@@ -14,7 +14,7 @@ SELECT * FROM doctor
 | YT67          | Ben       | Spock      | Pediatrician | 1955-02-20   | DDE           |
 | ZZ12          | Yuebo     | Yang       | Gynecologist | 1972-12-01   | ABC           |
 +---------------+-----------+------------+--------------+--------------+---------------+
-7 rows in set (0.01 sec)
+7 rows in set (0.00 sec)
 
 ERROR 1451 (23000) at line 4: Cannot delete or update a parent row: a foreign key constraint fails (`yguo379assign2db`.`hospital`, CONSTRAINT `hospital_ibfk_1` FOREIGN KEY (`headdocid`) REFERENCES `doctor` (`licensenumber`))
 --------------
@@ -48,18 +48,18 @@ Query OK, 0 rows affected (0.01 sec)
 SELECT * FROM V1
 --------------
 
-+---------+---------+------------+---------+
-| pfn     | pln     | hpn        | dln     |
-+---------+---------+------------+---------+
-| Bill    | Gellar | St. Joseph | Shabado |
-| Suzi    | Brown   | St. Joseph | Shabado |
-| Jon     | Green  | St. Joseph | Shabado |
-| Yang    | Guo     | St. Joseph | Shabado |
-| Colleen | Gellar | St. Joseph | Shabado |
-| Sean    | Gellar | St. Joseph | Shabado |
-| Scotty  | Bing   | St. Joseph | Shabado |
-+---------+---------+------------+---------+
-7 rows in set (0.02 sec)
++---------+--------+------------+---------+
+| pfn     | pln    | hpn        | dln     |
++---------+--------+------------+---------+
+| Bill    | Gellar | St. Joseph | Shabado |
+| Suzi    | Brown  | St. Joseph | Shabado |
+| Jon     | Green  | St. Joseph | Shabado |
+| Yang    | Guo    | St. Joseph | Shabado |
+| Colleen | Gellar | St. Joseph | Shabado |
+| Sean    | Gellar | St. Joseph | Shabado |
+| Scotty  | Bing   | St. Joseph | Shabado |
++---------+--------+------------+---------+
+7 rows in set (0.00 sec)
 
 --------------
 SELECT * FROM doctor

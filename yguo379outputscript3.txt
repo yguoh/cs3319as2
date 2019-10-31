@@ -1,4 +1,4 @@
-mysql: [Warning] Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
 --------------
 SELECT lastname FROM patient
 --------------
@@ -6,15 +6,15 @@ SELECT lastname FROM patient
 +----------+
 | lastname |
 +----------+
-| Gellar  |
+| Gellar   |
 | Brown    |
-| Green   |
+| Green    |
 | Guo      |
-| Gellar  |
-| Gellar  |
-| Bing    |
+| Gellar   |
+| Gellar   |
+| Bing     |
 +----------+
-7 rows in set (0.01 sec)
+7 rows in set (0.00 sec)
 
 --------------
 SELECT DISTINCT lastname FROM patient
@@ -23,11 +23,11 @@ SELECT DISTINCT lastname FROM patient
 +----------+
 | lastname |
 +----------+
-| Gellar  |
+| Gellar   |
 | Brown    |
-| Green   |
+| Green    |
 | Guo      |
-| Bing    |
+| Bing     |
 +----------+
 5 rows in set (0.00 sec)
 
@@ -79,13 +79,13 @@ SELECT firstname, lastname FROM patient WHERE lastname LIKE "G%"
 +-----------+----------+
 | firstname | lastname |
 +-----------+----------+
-| Bill      | Gellar  |
-| Jon       | Green   |
+| Bill      | Gellar   |
+| Jon       | Green    |
 | Yang      | Guo      |
-| Colleen   | Gellar  |
-| Sean      | Gellar  |
+| Colleen   | Gellar   |
+| Sean      | Gellar   |
 +-----------+----------+
-5 rows in set (0.00 sec)
+5 rows in set (0.01 sec)
 
 --------------
 SELECT firstname, lastname FROM patient WHERE ohipnumber IN (SELECT ohipnumber FROM treat WHERE licensenumber IN (SELECT licensenumber FROM doctor WHERE lastname ="Clooney"))
@@ -95,9 +95,9 @@ SELECT firstname, lastname FROM patient WHERE ohipnumber IN (SELECT ohipnumber F
 | firstname | lastname |
 +-----------+----------+
 | Suzi      | Brown    |
-| Jon       | Green   |
-| Sean      | Gellar  |
-| Scotty    | Bing    |
+| Jon       | Green    |
+| Sean      | Gellar   |
+| Scotty    | Bing     |
 +-----------+----------+
 4 rows in set (0.00 sec)
 
@@ -184,6 +184,6 @@ SELECT firstname,lastname FROM doctor WHERE licensenumber IN (SELECT licensenumb
 | Ross      | Clooney  |
 | Mandy     | Webster  |
 +-----------+----------+
-3 rows in set (0.01 sec)
+3 rows in set (0.00 sec)
 
 Bye

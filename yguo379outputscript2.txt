@@ -1,4 +1,4 @@
-mysql: [Warning] Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
 --------------
 SELECT * FROM patient
 --------------
@@ -11,7 +11,7 @@ LOAD DATA LOCAL INFILE 'loaddatafall2019.txt'
     FIELDS TERMINATED BY ','
 --------------
 
-Query OK, 6 rows affected (0.01 sec)
+Query OK, 6 rows affected (0.02 sec)
 Records: 6  Deleted: 0  Skipped: 0  Warnings: 0
 
 --------------
@@ -21,12 +21,12 @@ SELECT * FROM patient
 +------------+-----------+----------+
 | ohipnumber | firstname | lastname |
 +------------+-----------+----------+
-|  110112113 | Bill      | Gellar  |
+|  110112113 | Bill      | Gellar   |
 |  111222111 | Suzi      | Bing     |
-|  111222333 | Jon       | Green   |
-|  333444555 | Colleen   | Gellar  |
-|  444555666 | Sean      | Gellar  |
-|  667766777 | Scotty    | Bing    |
+|  111222333 | Jon       | Green    |
+|  333444555 | Colleen   | Gellar   |
+|  444555666 | Sean      | Gellar   |
+|  667766777 | Scotty    | Bing     |
 +------------+-----------+----------+
 6 rows in set (0.00 sec)
 
@@ -34,7 +34,7 @@ SELECT * FROM patient
 INSERT INTO patient (ohipnumber, firstname, lastname) VALUES (123577777,"Yang","Guo")
 --------------
 
-Query OK, 1 row affected (0.00 sec)
+Query OK, 1 row affected (0.02 sec)
 
 --------------
 SELECT * FROM patient
@@ -43,13 +43,13 @@ SELECT * FROM patient
 +------------+-----------+----------+
 | ohipnumber | firstname | lastname |
 +------------+-----------+----------+
-|  110112113 | Bill      | Gellar  |
+|  110112113 | Bill      | Gellar   |
 |  111222111 | Suzi      | Bing     |
-|  111222333 | Jon       | Green   |
+|  111222333 | Jon       | Green    |
 |  123577777 | Yang      | Guo      |
-|  333444555 | Colleen   | Gellar  |
-|  444555666 | Sean      | Gellar  |
-|  667766777 | Scotty    | Bing    |
+|  333444555 | Colleen   | Gellar   |
+|  444555666 | Sean      | Gellar   |
+|  667766777 | Scotty    | Bing     |
 +------------+-----------+----------+
 7 rows in set (0.00 sec)
 
@@ -57,7 +57,7 @@ SELECT * FROM patient
 SELECT * FROM doctor
 --------------
 
-Empty set (0.01 sec)
+Empty set (0.00 sec)
 
 --------------
 INSERT INTO doctor (firstname, lastname, licensenumber, lincensedate, speciality) VALUES("Bernie","Kavorikian","RD34","1980-09-09","Urologist")
@@ -69,13 +69,13 @@ Query OK, 1 row affected (0.00 sec)
 INSERT INTO doctor (firstname, lastname, licensenumber, lincensedate, speciality) VALUES("Joey","Shabado","GD56","1960-06-24","Podiatrist")
 --------------
 
-Query OK, 1 row affected (0.00 sec)
+Query OK, 1 row affected (0.01 sec)
 
 --------------
 INSERT INTO doctor (firstname, lastname, licensenumber, lincensedate, speciality) VALUES("Ross","Clooney","HT45","1987-06-20","Surgeon")
 --------------
 
-Query OK, 1 row affected (0.01 sec)
+Query OK, 1 row affected (0.03 sec)
 
 --------------
 INSERT INTO doctor (firstname, lastname, licensenumber, lincensedate, speciality) VALUES("Ben","Spock","YT67","1955-02-20","Pediatrician")
@@ -87,7 +87,7 @@ Query OK, 1 row affected (0.01 sec)
 INSERT INTO doctor (firstname, lastname, licensenumber, lincensedate, speciality) VALUES("Mandy","Webster","JK78","1990-08-08","Surgeon")
 --------------
 
-Query OK, 1 row affected (0.00 sec)
+Query OK, 1 row affected (0.07 sec)
 
 --------------
 INSERT INTO doctor (firstname, lastname, licensenumber, lincensedate, speciality) VALUES("Colleen","Aziz","SE66","1989-08-24","Surgeon")
@@ -128,7 +128,7 @@ Empty set (0.00 sec)
 INSERT INTO hospital (hospitalcode, hospitalname, city, province, numberofbed) VALUES ("BBC","St. Joseph","London","On",1000)
 --------------
 
-Query OK, 1 row affected (0.00 sec)
+Query OK, 1 row affected (0.01 sec)
 
 --------------
 INSERT INTO hospital (hospitalcode, hospitalname, city, province, numberofbed) VALUES ("ABC","Victoria","London","On",1600)
@@ -165,19 +165,19 @@ Empty set (0.00 sec)
 INSERT INTO treat (ohipnumber,licensenumber) VALUES (110112113,"GD56")
 --------------
 
-Query OK, 1 row affected (0.00 sec)
+Query OK, 1 row affected (0.03 sec)
 
 --------------
 INSERT INTO treat (ohipnumber,licensenumber) VALUES (444555666,"HT45")
 --------------
 
-Query OK, 1 row affected (0.01 sec)
+Query OK, 1 row affected (0.00 sec)
 
 --------------
 INSERT INTO treat (ohipnumber,licensenumber) VALUES (444555666,"JK78")
 --------------
 
-Query OK, 1 row affected (0.01 sec)
+Query OK, 1 row affected (0.03 sec)
 
 --------------
 INSERT INTO treat (ohipnumber,licensenumber) VALUES (111222333,"SE66")
@@ -189,7 +189,7 @@ Query OK, 1 row affected (0.00 sec)
 INSERT INTO treat (ohipnumber,licensenumber) VALUES (111222333,"YT67")
 --------------
 
-Query OK, 1 row affected (0.00 sec)
+Query OK, 1 row affected (0.01 sec)
 
 --------------
 INSERT INTO treat (ohipnumber,licensenumber) VALUES (111222333,"JK78")
@@ -201,37 +201,37 @@ Query OK, 1 row affected (0.01 sec)
 INSERT INTO treat (ohipnumber,licensenumber) VALUES (333444555,"GD56")
 --------------
 
-Query OK, 1 row affected (0.00 sec)
+Query OK, 1 row affected (0.01 sec)
 
 --------------
 INSERT INTO treat (ohipnumber,licensenumber) VALUES (667766777,"YT67")
 --------------
 
-Query OK, 1 row affected (0.00 sec)
+Query OK, 1 row affected (0.01 sec)
 
 --------------
 INSERT INTO treat (ohipnumber,licensenumber) VALUES (667766777,"JK78")
 --------------
 
-Query OK, 1 row affected (0.01 sec)
+Query OK, 1 row affected (0.00 sec)
 
 --------------
 INSERT INTO treat (ohipnumber,licensenumber) VALUES (667766777,"GD56")
 --------------
 
-Query OK, 1 row affected (0.00 sec)
+Query OK, 1 row affected (0.01 sec)
 
 --------------
 INSERT INTO treat (ohipnumber,licensenumber) VALUES (111222111,"YT67")
 --------------
 
-Query OK, 1 row affected (0.00 sec)
+Query OK, 1 row affected (0.01 sec)
 
 --------------
 INSERT INTO treat (ohipnumber,licensenumber) VALUES (123577777,"ZZ12")
 --------------
 
-Query OK, 1 row affected (0.01 sec)
+Query OK, 1 row affected (0.00 sec)
 
 --------------
 SELECT * FROM treat
@@ -270,7 +270,7 @@ SELECT * FROM doctor
 | YT67          | Ben       | Spock      | Pediatrician | 1955-02-20   | NULL          |
 | ZZ12          | Yuebo     | Yang       | Gynecologist | 1972-12-01   | NULL          |
 +---------------+-----------+------------+--------------+--------------+---------------+
-7 rows in set (0.00 sec)
+7 rows in set (0.01 sec)
 
 --------------
 UPDATE doctor SET  workinhoscode="BBC" WHERE licensenumber ="RD34"
@@ -290,14 +290,14 @@ Rows matched: 1  Changed: 1  Warnings: 0
 UPDATE doctor SET  workinhoscode="DDE" WHERE licensenumber ="HT45"
 --------------
 
-Query OK, 1 row affected (0.00 sec)
+Query OK, 1 row affected (0.01 sec)
 Rows matched: 1  Changed: 1  Warnings: 0
 
 --------------
 UPDATE doctor SET  workinhoscode="DDE" WHERE licensenumber ="YT67"
 --------------
 
-Query OK, 1 row affected (0.00 sec)
+Query OK, 1 row affected (0.01 sec)
 Rows matched: 1  Changed: 1  Warnings: 0
 
 --------------
@@ -318,7 +318,7 @@ Rows matched: 1  Changed: 1  Warnings: 0
 UPDATE doctor SET  workinhoscode="ABC" WHERE licensenumber ="ZZ12"
 --------------
 
-Query OK, 1 row affected (0.00 sec)
+Query OK, 1 row affected (0.01 sec)
 Rows matched: 1  Changed: 1  Warnings: 0
 
 --------------
@@ -355,14 +355,14 @@ SELECT * FROM hospital
 UPDATE hospital SET  headdocid="GD56" WHERE hospitalcode ="BBC"
 --------------
 
-Query OK, 1 row affected (0.01 sec)
+Query OK, 1 row affected (0.04 sec)
 Rows matched: 1  Changed: 1  Warnings: 0
 
 --------------
 UPDATE hospital SET  startathead="1999-09-10" WHERE hospitalcode ="BBC"
 --------------
 
-Query OK, 1 row affected (0.00 sec)
+Query OK, 1 row affected (0.02 sec)
 Rows matched: 1  Changed: 1  Warnings: 0
 
 --------------
@@ -383,14 +383,14 @@ Rows matched: 1  Changed: 1  Warnings: 0
 UPDATE hospital SET  headdocid="SE66" WHERE hospitalcode ="ABC"
 --------------
 
-Query OK, 1 row affected (0.00 sec)
+Query OK, 1 row affected (0.01 sec)
 Rows matched: 1  Changed: 1  Warnings: 0
 
 --------------
 UPDATE hospital SET  startathead="1994-12-05" WHERE hospitalcode ="ABC"
 --------------
 
-Query OK, 1 row affected (0.00 sec)
+Query OK, 1 row affected (0.01 sec)
 Rows matched: 1  Changed: 1  Warnings: 0
 
 --------------
@@ -413,13 +413,13 @@ SELECT * FROM patient
 +------------+-----------+----------+
 | ohipnumber | firstname | lastname |
 +------------+-----------+----------+
-|  110112113 | Bill      | Gellar  |
+|  110112113 | Bill      | Gellar   |
 |  111222111 | Suzi      | Bing     |
-|  111222333 | Jon       | Green   |
+|  111222333 | Jon       | Green    |
 |  123577777 | Yang      | Guo      |
-|  333444555 | Colleen   | Gellar  |
-|  444555666 | Sean      | Gellar  |
-|  667766777 | Scotty    | Bing    |
+|  333444555 | Colleen   | Gellar   |
+|  444555666 | Sean      | Gellar   |
+|  667766777 | Scotty    | Bing     |
 +------------+-----------+----------+
 7 rows in set (0.00 sec)
 
@@ -427,7 +427,7 @@ SELECT * FROM patient
 UPDATE patient SET  lastname="Brown" WHERE ohipnumber ="111222111"
 --------------
 
-Query OK, 1 row affected (0.01 sec)
+Query OK, 1 row affected (0.00 sec)
 Rows matched: 1  Changed: 1  Warnings: 0
 
 --------------
@@ -437,13 +437,13 @@ SELECT * FROM patient
 +------------+-----------+----------+
 | ohipnumber | firstname | lastname |
 +------------+-----------+----------+
-|  110112113 | Bill      | Gellar  |
+|  110112113 | Bill      | Gellar   |
 |  111222111 | Suzi      | Brown    |
-|  111222333 | Jon       | Green   |
+|  111222333 | Jon       | Green    |
 |  123577777 | Yang      | Guo      |
-|  333444555 | Colleen   | Gellar  |
-|  444555666 | Sean      | Gellar  |
-|  667766777 | Scotty    | Bing    |
+|  333444555 | Colleen   | Gellar   |
+|  444555666 | Sean      | Gellar   |
+|  667766777 | Scotty    | Bing     |
 +------------+-----------+----------+
 7 rows in set (0.00 sec)
 
@@ -473,7 +473,7 @@ SELECT * FROM treat
 UPDATE treat SET licensenumber = (SELECT licensenumber FROM doctor WHERE lastname ="Clooney") WHERE licensenumber = (SELECT licensenumber FROM doctor WHERE lastname ="Spock")
 --------------
 
-Query OK, 3 rows affected (0.00 sec)
+Query OK, 3 rows affected (0.01 sec)
 Rows matched: 3  Changed: 3  Warnings: 0
 
 --------------
