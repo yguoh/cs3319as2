@@ -1,0 +1,21 @@
+-- make sure the t.a. has access to your database
+GRANT USAGE ON *.* TO 'ta'@'localhost';
+DROP USER 'ta'@'localhost';
+CREATE USER 'ta'@'localhost' IDENTIFIED BY 'cs3319';
+GRANT ALL PRIVILEGES ON yguo379assign2db.* TO 'ta'@'localhost';
+FLUSH PRIVILEGES;
+-- ta permission part
+-- build the database
+SHOW databases;
+DROP DATABASE IF EXISTS  yguo379assign2db;
+CREATE DATABASE yguo379assign2db;
+USE yguo379assign2db;
+
+SHOW TABLES; -- list all tables
+CREATE TABLE doctor (licensenumber VARCHAR(4) NOT NULL, firstname VARCHAR(20) NOT NULL, lastname VARCHAR(20) NOT NULL, speciality VARCHAR(30), lincensedate DATE,workinhoscode VARCHAR(3), PRIMARY KEY(licensenumber));
+CREATE TABLE patient (ohipnumber INT(9) NOT NULL, firstname VARCHAR(20) NOT NULL, lastname VARCHAR(20) NOT NULL,PRIMARY KEY(ohipnumber));
+CREATE TABLE hospital (hospitalname VARCHAR(20) NOT NULL, city VARCHAR(20), province VARCHAR(2),numberofbed INT,headdocid VARCHAR(4), startathead DATE, hospitalcode VARCHAR(3) NOT NULL, PRIMARY KEY(hospitalcode), FOREIGN KEY (headdocid) REFERENCES doctor(licensenumber));
+CREATE TABLE treat(ohipnumber INT(9) NOT NULL, licensenumber VARCHAR(4) NOT NULL, FOREIGN KEY (ohipnumber) REFERENCES patient(ohipnumber), FOREIGN KEY (licensenumber) REFERENCES doctor(licensenumber)); 
+ALTER TABLE doctor ADD FOREIGN KEY (workinhoscode) REFERENCES hospital(hospitalcode);
+SHOW TABLES;-- list table again
+

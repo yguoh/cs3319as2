@@ -1,0 +1,25 @@
+USE yguo379assign2db;
+-- DELETE
+SELECT * FROM doctor;
+DELETE FROM doctor WHERE lincensedate < '1965-01-01';
+SELECT * FROM doctor;
+-- doesn't work, because there aree parent row of others,and there are doctor lincensedate<1965 as the head doctor of hospital, which cannot be null 
+-- Create a View
+CREATE VIEW V1 AS SELECT patient.firstname AS pfn, patient.lastname AS pln,hospital.hospitalname  hpn,doctor.lastname as dln FROM patient,doctor,hospital WHERE doctor.licensenumber IN(SELECT licensenumber FROM treat WHERE licensenumber IN (SELECT headdocid FROM hospital WHERE startathead > "1995-12-31")) AND doctor.workinhoscode=hospital.hospitalcode;
+-- Prove that your view works by selecting all the rows from it. 
+SELECT * FROM V1;
+-- Show all the data in the doctor table and show all the data in the treats table
+SELECT * FROM doctor;
+SELECT * FROM treat;
+-- Delete the doctor with a last name of Clooney
+DELETE FROM doctor WHERE lastname ="Clooney";
+Prove that the delete worked by showing the doctors table again
+SELECT * FROM doctor;
+
+-- SELECT * FROM doctor.REFERENTIAL_CONSTRAINTS;
+SELECT * FROM treat;
+-- show doctor table agian
+SELECT * FROM doctor;
+-- try delete all Surgeon
+DELETE FROM doctor WHERE speciality ="Surgeon";
+-- not delete, some of them are headdoctor which being used in hopital table 

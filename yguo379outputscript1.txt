@@ -1,0 +1,110 @@
+mysql: [Warning] Using a password on the command line interface can be insecure.
+--------------
+GRANT USAGE ON *.* TO 'ta'@'localhost'
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+DROP USER 'ta'@'localhost'
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+CREATE USER 'ta'@'localhost' IDENTIFIED BY 'cs3319'
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+GRANT ALL PRIVILEGES ON yguo379assign2db.* TO 'ta'@'localhost'
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+FLUSH PRIVILEGES
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+SHOW databases
+--------------
+
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| yguo379assign2db   |
++--------------------+
+5 rows in set (0.01 sec)
+
+--------------
+DROP DATABASE IF EXISTS  yguo379assign2db
+--------------
+
+Query OK, 6 rows affected (0.08 sec)
+
+--------------
+CREATE DATABASE yguo379assign2db
+--------------
+
+Query OK, 1 row affected (0.01 sec)
+
+--------------
+SHOW TABLES
+--------------
+
+Empty set (0.00 sec)
+
+--------------
+CREATE TABLE doctor (licensenumber VARCHAR(4) NOT NULL, firstname VARCHAR(20) NOT NULL, lastname VARCHAR(20) NOT NULL, speciality VARCHAR(30), lincensedate DATE,workinhoscode VARCHAR(3), PRIMARY KEY(licensenumber))
+--------------
+
+Query OK, 0 rows affected (0.06 sec)
+
+--------------
+CREATE TABLE patient (ohipnumber INT(9) NOT NULL, firstname VARCHAR(20) NOT NULL, lastname VARCHAR(20) NOT NULL,PRIMARY KEY(ohipnumber))
+--------------
+
+Query OK, 0 rows affected (0.06 sec)
+
+--------------
+CREATE TABLE hospital (hospitalname VARCHAR(20) NOT NULL, city VARCHAR(20), province VARCHAR(2),numberofbed INT,headdocid VARCHAR(4), startathead DATE, hospitalcode VARCHAR(3) NOT NULL, PRIMARY KEY(hospitalcode), FOREIGN KEY (headdocid) REFERENCES doctor(licensenumber))
+--------------
+
+Query OK, 0 rows affected (0.07 sec)
+
+--------------
+CREATE TABLE treat(ohipnumber INT(9) NOT NULL, licensenumber VARCHAR(4) NOT NULL, FOREIGN KEY (ohipnumber) REFERENCES patient(ohipnumber), FOREIGN KEY (licensenumber) REFERENCES doctor(licensenumber))
+--------------
+
+Query OK, 0 rows affected (0.06 sec)
+
+--------------
+ALTER TABLE doctor ADD FOREIGN KEY (workinhoscode) REFERENCES hospital(hospitalcode)
+--------------
+
+Query OK, 0 rows affected (0.12 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+--------------
+SHOW TABLES
+--------------
+
++----------------------------+
+| Tables_in_yguo379assign2db |
++----------------------------+
+| doctor                     |
+| hospital                   |
+| patient                    |
+| treat                      |
++----------------------------+
+4 rows in set (0.00 sec)
+
+Bye

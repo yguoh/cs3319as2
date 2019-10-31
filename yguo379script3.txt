@@ -1,0 +1,28 @@
+USE yguo379assign2db;
+-- Query 1
+SELECT lastname FROM patient;
+-- Query 2
+SELECT DISTINCT lastname FROM patient;
+-- Query 3
+SELECT * FROM doctor ORDER BY lastname;
+-- Query 4
+SELECT hospitalname, hospitalcode FROM hospital WHERE numberofbed > 1500;
+-- Query 5
+SELECT lastname, firstname FROM doctor WHERE workinhoscode = (SELECT hospitalcode FROM hospital WHERE hospitalname ="St. Joseph");
+-- Query 6
+SELECT firstname, lastname FROM patient WHERE lastname LIKE "G%";
+-- Query 7
+SELECT firstname, lastname FROM patient WHERE ohipnumber IN (SELECT ohipnumber FROM treat WHERE licensenumber IN (SELECT licensenumber FROM doctor WHERE lastname ="Clooney"));
+-- Query 8
+SELECT hospital.hospitalname, hospital.city, doctor.lastname  FROM hospital, doctor WHERE headdocid = licensenumber;
+-- Query 9
+SELECT SUM(hospital.numberofbed) AS 'Total Number of Beds' FROM hospital;
+-- Query 10 
+SELECT doctor.firstname,patient.firstname FROM doctor,patient WHERE licensenumber IN(SELECT licensenumber FROM treat WHERE licensenumber IN (SELECT headdocid FROM hospital));
+-- Query 11
+SELECT firstname, lastname FROM doctor WHERE speciality = "Surgeon" AND workinhoscode IN(SELECT hospitalcode FROM hospital WHERE hospitalname="Victoria");
+-- Query 12
+SELECT firstname FROM doctor WHERE licensenumber NOT IN(SELECT licensenumber FROM treat);
+-- Query 13
+SELECT firstname,lastname FROM doctor WHERE licensenumber IN (SELECT licensenumber FROM treat GROUP BY licensenumber HAVING COUNT(*) > 1);
+
